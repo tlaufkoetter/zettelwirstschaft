@@ -1,4 +1,5 @@
 using Xunit;
+using ZettelWirtschaft.Application.ValueObject;
 using ZettelWirtschaft.Application.Zettel;
 
 namespace ZettelWirtschaft.Application.Test.Zettel
@@ -14,6 +15,12 @@ namespace ZettelWirtschaft.Application.Test.Zettel
         public void TestAssignment(string content, string expected)
         {
             Assert.Equal(expected, new ZettelContent(content));
+        }
+
+        [Fact]
+        public void UsesValidator()
+        {
+            Assert.Equal(typeof(ValueObject<string, ZettelContentValidator>), typeof(ZettelContent).BaseType);
         }
     }
 }
