@@ -4,30 +4,14 @@ using FluentValidation;
 using FluentValidation.Results;
 using System.Threading.Tasks;
 using System.Threading;
+using ZettelWirtschaft.Application.ValueObject;
 
 namespace ZettelWirtschaft.Application.Zettel
 {
-    public class ZettelId
+    public class ZettelId : StringId
     {
-        private class ZettelIdValidator : AbstractValidator<ZettelId>
+        public ZettelId(string id) : base(id)
         {
-            private const string Pattern = @"^[a-zA-Z0-9]+((-[a-zA-Z0-9]+)|(_[a-zA-Z0-9]+))*$";
-            public ZettelIdValidator()
-            {
-                RuleFor(x => x.Id).NotNull().NotEmpty().Matches(Pattern);
-            }
-        }
-        public string Id { get; }
-
-        public ZettelId(string id)
-        {
-            this.Id = id;
-            new ZettelIdValidator().ValidateAndThrow(this);
-        }
-
-        public static implicit operator string(ZettelId id)
-        {
-            return id.Id;
         }
     }
 }
