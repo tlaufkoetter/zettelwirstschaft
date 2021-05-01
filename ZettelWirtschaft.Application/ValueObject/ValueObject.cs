@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using FluentValidation;
 using FluentValidation.Results;
 
@@ -21,6 +23,17 @@ namespace ZettelWirtschaft.Application.ValueObject
         public static TValidator GetValidator()
         {
             return new TValidator();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ValueObject<TValue, TValidator> @object &&
+                   EqualityComparer<TValue>.Default.Equals(Value, @object.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Value);
         }
     }
 }
