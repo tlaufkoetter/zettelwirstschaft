@@ -1,4 +1,5 @@
 using FluentValidation;
+using FluentValidation.Results;
 
 namespace ZettelWirtschaft.Application.ValueObject
 {
@@ -8,18 +9,18 @@ namespace ZettelWirtschaft.Application.ValueObject
 
         protected ValueObject(TValue value)
         {
-            Validate(value);
+            GetValidator().ValidateAndThrow(value);
             Value = value;
-        }
-
-        private void Validate(TValue obj)
-        {
-            new TValidator().ValidateAndThrow(obj);
         }
 
         public static implicit operator TValue(ValueObject<TValue, TValidator> obj)
         {
             return obj.Value;
+        }
+
+        public static TValidator GetValidator()
+        {
+            return new TValidator();
         }
     }
 }
