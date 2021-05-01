@@ -15,7 +15,6 @@ namespace ZettelWirtschaft.Application.Test.ValueObject
         [InlineData("0001234760")]
         [InlineData("0")]
         [InlineData("a")]
-        [InlineData("a")]
         [InlineData("1")]
         public void DoesTheTest(string id)
         {

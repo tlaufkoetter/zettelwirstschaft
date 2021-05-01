@@ -6,17 +6,18 @@ namespace ZettelWirtschaft.Application.Test.Zettel
     public class ZettelContentValidatorTests
     {
         [Theory]
-        [InlineData("ack")]
-        [InlineData("")]
         [InlineData("         ")]
         [InlineData("no trailing    ")]
         [InlineData("kein trailing \nauch nicht bei mehreren Zeilen")]
+        [InlineData("auch keine\n   \nwhitezpace Zeilen!")]
         public void TestInvalidContents(string content)
         {
             Assert.False(new ZettelContentValidator().Validate(content).IsValid);
         }
 
         [Theory]
+        [InlineData("ack")]
+        [InlineData("")]
         [InlineData("Ein solider, wenn auch kurzer, Text")]
         [InlineData("Mehrzeiler sind in Ordnung\nund auch durchaus erwünscht")]
         [InlineData("   leading ist bei einer Zeile zwar seltsam, aber erlaubt")]
