@@ -44,7 +44,7 @@ namespace ZettelWirtscahft.ElectronApp.Pages.Zettel
             {
                 var createCommand = new CreateZettelCommand(new Title(emptyZettel.Title), new ZettelContent(emptyZettel.Content));
                 var newZettel = await mediator.Send(createCommand);
-                return RedirectToPage("../Index");
+                return RedirectToPage("./ListZettel");
             }
             return Page();
         }
