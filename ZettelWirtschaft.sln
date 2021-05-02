@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZettelWirtschaft.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZettelWirtschaft.Application", "ZettelWirtschaft.Application\ZettelWirtschaft.Application.csproj", "{C24A67B5-285B-4DB2-BF54-8A294C83891A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZettelWirtschaft.ElectronApp", "ZettelWirtschaft.ElectronApp\ZettelWirtschaft.ElectronApp.csproj", "{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{C24A67B5-285B-4DB2-BF54-8A294C83891A}.Release|x64.Build.0 = Release|Any CPU
 		{C24A67B5-285B-4DB2-BF54-8A294C83891A}.Release|x86.ActiveCfg = Release|Any CPU
 		{C24A67B5-285B-4DB2-BF54-8A294C83891A}.Release|x86.Build.0 = Release|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Debug|x64.Build.0 = Debug|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Debug|x86.Build.0 = Debug|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Release|x64.ActiveCfg = Release|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Release|x64.Build.0 = Release|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Release|x86.ActiveCfg = Release|Any CPU
+		{27FA45D2-6967-4AF9-A1A2-42B1725F6F68}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
