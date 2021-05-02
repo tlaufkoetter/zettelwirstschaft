@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ElectronNET.API;
 using ElectronNET.API.Entities;
+using MediatR;
+using System.Reflection;
 
 namespace ZettelWirtschaft.ElectronApp
 {
@@ -36,6 +38,7 @@ namespace ZettelWirtschaft.ElectronApp
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            services.AddMediatR(Assembly.Load("ZettelWirtschaft.Application"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
