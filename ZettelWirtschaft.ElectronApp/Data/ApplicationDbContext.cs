@@ -12,5 +12,7 @@ namespace ZettelWirtschaft.ElectronApp.Data
             : base(options)
         {
         }
+
+        public DbSet<ZettelData> Zettel { get; set; }
     }
 }

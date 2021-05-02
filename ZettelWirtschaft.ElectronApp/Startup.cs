@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using ZettelWirtschaft.ElectronApp.Data;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +9,8 @@ using Microsoft.Extensions.Hosting;
 using ElectronNET.API;
 using ElectronNET.API.Entities;
 using MediatR;
-using System.Reflection;
+using ZettelWirtschaft.Application.Zettel;
+using ZettelWirtscahft.ElectronApp.Pages.Zettel;
 
 namespace ZettelWirtschaft.ElectronApp
 {
@@ -38,7 +33,8 @@ namespace ZettelWirtschaft.ElectronApp
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
-            services.AddMediatR(Assembly.Load("ZettelWirtschaft.Application"));
+            services.AddMediatR(typeof(ZettelEntity));
+            services.AddScoped<IZettelCreationRepository, CreateZettelRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
