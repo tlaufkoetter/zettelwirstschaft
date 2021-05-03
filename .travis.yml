@@ -1,5 +1,8 @@
 language: csharp
 mono: none
 dotnet: 5.0
+solution: ZettelWirtschaft.sln
 script:
  - dotnet restore
+ - dotnet test
+ - dotnet build
