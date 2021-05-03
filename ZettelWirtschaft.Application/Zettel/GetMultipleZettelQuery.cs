@@ -37,7 +37,7 @@ namespace ZettelWirtschaft.Application.Zettel
 
         public async Task<IEnumerable<ZettelEntity>> Handle(GetMultipleZettelQuery request, CancellationToken cancellationToken)
         {
-            return await repository.GetMultipleZettel(cancellationToken);
+            return (await repository.GetMultipleZettel(cancellationToken)) ?? new List<ZettelEntity>() { };
         }
     }
 }

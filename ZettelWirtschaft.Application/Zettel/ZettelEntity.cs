@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ZettelWirtschaft.Application.ValueObject;
 
 namespace ZettelWirtschaft.Application.Zettel
@@ -19,6 +20,17 @@ namespace ZettelWirtschaft.Application.Zettel
             this.Id = zettelId;
             this.Title = title;
             this.Content = zettelContent;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is ZettelEntity entity &&
+                   EqualityComparer<ZettelId>.Default.Equals(Id, entity.Id);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
         }
     }
 }
