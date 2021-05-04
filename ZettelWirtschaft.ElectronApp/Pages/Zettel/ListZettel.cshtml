@@ -22,7 +22,7 @@
                 @foreach (var zettel in Model.Zettel)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(item => zettel.Title)</td>
+                            <td><a asp-page="DetailZettel" asp-route-zettelId="@zettel.Id"> @Html.DisplayFor(item => zettel.Title)</a></td>
                     </tr>
                 }
             </tbody>
