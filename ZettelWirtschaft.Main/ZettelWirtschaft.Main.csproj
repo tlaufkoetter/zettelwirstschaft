@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+      <ProjectReference Include="..\ZettelWirtschaft.Data\ZettelWirtschaft.Data.csproj" />
+      <ProjectReference Include="..\ZettelWirtschaft.Engine\ZettelWirtschaft.Engine.csproj" />
+      <ProjectReference Include="..\ZettelWirtschaft.AvaloniaUI\ZettelWirtschaft.AvaloniaUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="10.1.1" />
+    <PackageReference Include="automapper.extensions.microsoft.dependencyinjection" Version="8.1.1" />
+    <PackageReference Include="mediatr" Version="9.0.0" />
+    <PackageReference Include="mediatr.extensions.microsoft.dependencyinjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="microsoft.extensions.dependencyinjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

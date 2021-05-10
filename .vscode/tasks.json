@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ZettelWirtschaft.Application.Test/ZettelWirtschaft.Application.Test.csproj",
+                "${workspaceFolder}/ZettelWirtschaft.Engine.Test/ZettelWirtschaft.Engine.Test.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/ZettelWirtschaft.Application.Test/ZettelWirtschaft.Application.Test.csproj",
+                "${workspaceFolder}/ZettelWirtschaft.Engine.Test/ZettelWirtschaft.Engine.Test.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/ZettelWirtschaft.Application.Test/ZettelWirtschaft.Application.Test.csproj",
+                "${workspaceFolder}/ZettelWirtschaft.Engine.Test/ZettelWirtschaft.Engine.Test.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
