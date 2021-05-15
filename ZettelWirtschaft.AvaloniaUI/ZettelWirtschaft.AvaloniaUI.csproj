@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <AvaloniaNameGeneratorBehavior>InitializeComponent</AvaloniaNameGeneratorBehavior>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -13,7 +14,14 @@
     <PackageReference Include="Avalonia.Desktop" Version="0.10.3" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.3" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.3" />
+    <PackageReference Include="citrus.avalonia" Version="1.4.3" />
+    <PackageReference Include="MessageBox.Avalonia" Version="1.2.0" />
+    <PackageReference Include="Pharmacist.Common" Version="2.0.8" />
+    <PackageReference Include="Pharmacist.MSBuild" Version="2.0.8" />
+    <PackageReference Include="reactiveui.fody" Version="13.3.2" />
+    <PackageReference Include="reactiveui.validation" Version="2.1.1" />
     <PackageReference Include="splat.microsoft.extensions.dependencyinjection" Version="11.0.1" />
+    <PackageReference Include="xamlnamereferencegenerator" Version="1.2.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZettelWirtschaft.Engine\ZettelWirtschaft.Engine.csproj" />

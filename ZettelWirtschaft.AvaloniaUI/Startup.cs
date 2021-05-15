@@ -3,8 +3,11 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.ReactiveUI;
 using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
 using Splat;
 using Splat.Microsoft.Extensions.DependencyInjection;
+using ZettelWirtschaft.AvaloniaUI.ViewModels;
+using ZettelWirtschaft.AvaloniaUI.Views;
 
 namespace ZettelWirtschaft.AvaloniaUI
 {
@@ -22,9 +25,13 @@ namespace ZettelWirtschaft.AvaloniaUI
 
         // Avalonia configuration, don't remove; also used by visual designer.
         private AppBuilder BuildAvaloniaApp()
-            => AppBuilder.Configure<App>()
+        {
+            Locator.CurrentMutable.Register(() => new ZettelDetailView(), typeof(IViewFor<ZettelDetailViewModel>));
+            Locator.CurrentMutable.Register(() => new ZettelListEntryView(), typeof(IViewFor<ZettelListEntryViewModel>));
+            return AppBuilder.Configure<App>()
                .UsePlatformDetect()
                .LogToTrace()
                .UseReactiveUI();
+        }
     }
 }

@@ -13,10 +13,11 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
 {
     public class GetMultipleZettelQueryTests
     {
+        private static Guid id = Guid.NewGuid();
         public static IEnumerable<object[]> getZettelTestData = new object[][]{
             new[] {
-                new List<ZettelEntity>{ new ZettelEntity(new ZettelId("test"), new Title("Title"), new ZettelContent("mein Content")) },
-                new List<ZettelEntity>{ new ZettelEntity(new ZettelId("test"), new Title("Title"), new ZettelContent("mein Content")) }},
+                new List<ZettelEntity>{ new ZettelEntity(new ZettelId(id), new Title("Title"), new ZettelContent("mein Content")) },
+                new List<ZettelEntity>{ new ZettelEntity(new ZettelId(id), new Title("Title"), new ZettelContent("mein Content")) }},
             new[] { new List<ZettelEntity>(), new List<ZettelEntity>() }
         };
 

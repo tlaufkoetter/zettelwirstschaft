@@ -42,6 +42,7 @@ namespace ZettelWirtschaft.Main
 
             DataSeed.SeedData(serviceProvider.GetRequiredService<ZettelDbContext>()).Wait();
 
+
             startup.Start(args);
         }
     }

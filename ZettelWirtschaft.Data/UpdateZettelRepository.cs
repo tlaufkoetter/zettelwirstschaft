@@ -20,18 +20,19 @@ namespace ZettelWirtschaft.Data
 
         public async Task<bool> DoesZettelExist(ZettelId zettelId1, CancellationToken cancellation)
         {
-            return (await dbContext.Zettels.FindAsync(Guid.Parse(zettelId1))) != null;
+            return (await dbContext.Zettels.FindAsync(zettelId1.Value)) != null;
         }
 
         public async Task<ZettelEntity> UpdateZettel(ZettelEntity zettel, CancellationToken cancellation)
         {
-            var zettelData = await dbContext.Zettels.FindAsync(Guid.Parse(zettel.Id));
+            var zettelData = await dbContext.Zettels.FindAsync(zettel.Id.Value);
             if (zettelData == null)
             {
                 throw new ArgumentException($"zettel with id {zettel.Id} does not exist.");
             }
 
             mapper.Map(zettel, zettelData);
+            dbContext.Attach(zettelData);
             dbContext.Update(zettelData);
             await dbContext.SaveChangesAsync();
 

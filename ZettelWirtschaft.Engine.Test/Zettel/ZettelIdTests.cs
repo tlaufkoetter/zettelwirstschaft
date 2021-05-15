@@ -8,15 +8,16 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
     public class ZettelIdTests
     {
         [Fact]
-        public void IsStringId()
+        public void IsGuidId()
         {
-            Assert.Equal(typeof(StringId).FullName, typeof(ZettelId).BaseType.FullName);
+            Assert.Equal(typeof(GuidId).FullName, typeof(ZettelId).BaseType.FullName);
         }
 
         [Fact]
         public void SetsValue()
         {
-            Assert.Equal("test", new StringId("test"));
+            var id = Guid.NewGuid();
+            Assert.Equal(id, new GuidId(id));
         }
     }
 }

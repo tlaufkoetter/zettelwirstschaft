@@ -13,8 +13,8 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
     public class UpdateZettelCommandTests
     {
         public static IEnumerable<object[]> data = new object[][] {
-            new object[] {new ZettelEntity(new ZettelId("zettelid1"), new Title("zettelTitle1"), new ZettelContent("ZettelContent1"))},
-            new object[] {new ZettelEntity(new ZettelId("zettelid2"), new Title("zettelTitle2"), new ZettelContent("ZettelContent2"))},
+            new object[] {new ZettelEntity(new ZettelId(Guid.NewGuid()), new Title("zettelTitle1"), new ZettelContent("ZettelContent1"))},
+            new object[] {new ZettelEntity(new ZettelId(Guid.NewGuid()), new Title("zettelTitle2"), new ZettelContent("ZettelContent2"))},
         };
 
         [Theory]
@@ -31,7 +31,7 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
 
             var handler = new UpdateZettelCommandHandler(repoMock.Object);
 
-            var result = handler.Handle(new UpdateZettelCommand(new ZettelEntity(new ZettelId("doesNotExist"), new Title("title"), new ZettelContent("content"))), CancellationToken.None).Result;
+            var result = handler.Handle(new UpdateZettelCommand(new ZettelEntity(new ZettelId(Guid.NewGuid()), new Title("title"), new ZettelContent("content"))), CancellationToken.None).Result;
 
             Assert.Equal(expected, result);
             Assert.All(expected.GetType().GetProperties(), p => Assert.Equal(p.GetValue(expected), p.GetValue(result)));
@@ -53,7 +53,7 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
 
             var handler = new UpdateZettelCommandHandler(repoMock.Object);
 
-            Assert.ThrowsAny<Exception>(() => handler.Handle(new UpdateZettelCommand(new ZettelEntity(new ZettelId("doesNotExist"), new Title("title"), new ZettelContent("content"))), CancellationToken.None).Result);
+            Assert.ThrowsAny<Exception>(() => handler.Handle(new UpdateZettelCommand(new ZettelEntity(new ZettelId(Guid.NewGuid()), new Title("title"), new ZettelContent("content"))), CancellationToken.None).Result);
 
             repoMock.Verify(doesZettelExist);
             repoMock.VerifyNoOtherCalls();

@@ -12,9 +12,13 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
 {
     public class GetZettelDetailTests
     {
+        private static Guid[] guids = new Guid[] {
+            Guid.NewGuid(),
+            Guid.NewGuid()
+        };
         public static IEnumerable<object[]> data = new object[][] {
-            new object[] {new ZettelId("theid"), new ZettelEntity(new ZettelId("theid"), new Title("the title"), new ZettelContent("the content"))},
-            new object[] {new ZettelId("theid1"),new ZettelEntity(new ZettelId("theid1"), new Title("the title2"), new ZettelContent("the content3"))}
+            new object[] {new ZettelId(guids[0]), new ZettelEntity(new ZettelId(guids[0]), new Title("the title"), new ZettelContent("the content"))},
+            new object[] {new ZettelId(guids[1]),new ZettelEntity(new ZettelId(guids[1]), new Title("the title2"), new ZettelContent("the content3"))}
         };
 
         [Theory]
@@ -41,7 +45,7 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
             repoMock.Setup(getDetail).ReturnsAsync((ZettelEntity)null);
 
             var handler = new GetZettelDetailQueryHandler(repoMock.Object);
-            var zettel = handler.Handle(new GetZettelDetailQuery(new ZettelId("doesNotExist")), CancellationToken.None).Result;
+            var zettel = handler.Handle(new GetZettelDetailQuery(new ZettelId(Guid.NewGuid())), CancellationToken.None).Result;
 
             repoMock.Verify(getDetail);
             Assert.Null(zettel);

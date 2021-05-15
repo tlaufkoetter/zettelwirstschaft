@@ -12,7 +12,7 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
         [Fact]
         public void CreateZettel()
         {
-            var zettel = new ZettelEntity(new ZettelId("zettel1"), new Title("Ein Zettel"), new ZettelContent("Eine kleine Reise durch die Tests"));
+            var zettel = new ZettelEntity(new ZettelId(Guid.NewGuid()), new Title("Ein Zettel"), new ZettelContent("Eine kleine Reise durch die Tests"));
         }
 
         [Theory]
@@ -28,7 +28,7 @@ namespace ZettelWirtschaft.Engine.Test.Zettel
             ZettelId id = null;
             if (zettelId != null)
             {
-                id = new ZettelId(zettelId);
+                id = new ZettelId(Guid.NewGuid());
             }
             Title titel = null;
             if (zettelTitle != null)

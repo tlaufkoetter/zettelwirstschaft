@@ -8,9 +8,13 @@ using ZettelWirtschaft.Engine.ValueObject;
 
 namespace ZettelWirtschaft.Engine.Zettel
 {
-    public class ZettelId : StringId
+    public class ZettelId : GuidId
     {
-        public ZettelId(string id) : base(id)
+        public ZettelId(Guid id) : base(id)
+        {
+        }
+
+        public ZettelId() : this(Guid.NewGuid())
         {
         }
     }

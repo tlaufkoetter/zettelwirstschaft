@@ -19,7 +19,7 @@ namespace ZettelWirtschaft.Data
 
         public async Task<ZettelEntity> GetZettelDetail(ZettelId id, CancellationToken cancellation)
         {
-            var zettel = await dbContext.Zettels.FindAsync(Guid.Parse(id));
+            var zettel = await dbContext.Zettels.FindAsync(id.Value);
             if (zettel == null)
             {
                 return null;

@@ -33,8 +33,7 @@ namespace ZettelWirtschaft.Engine.Zettel
 
         public async Task<ZettelEntity> Handle(CreateZettelCommand request, CancellationToken cancellationToken)
         {
-            var zettelId = await zettelCreattionRepository.GetNewZettelId(cancellationToken);
-            var zettel = new ZettelEntity(zettelId, request.Title, request.Content);
+            var zettel = new ZettelEntity(new ZettelId(), request.Title, request.Content);
             return await zettelCreattionRepository.CreateNewZettel(zettel, cancellationToken);
         }
     }

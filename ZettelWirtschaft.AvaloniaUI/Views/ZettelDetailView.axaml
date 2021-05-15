@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="using:ZettelWirtschaft.AvaloniaUI.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ZettelWirtschaft.AvaloniaUI.Views.ZettelDetailView">
+    <Design.DataContext>
+        <vm:ZettelDetailViewModel/>
+    </Design.DataContext>
+    <Grid RowDefinitions="1*,Auto">
+        <Grid Classes="Card" RowDefinitions="Auto,1*" Grid.Row="0">
+            <Border Classes="group"  Grid.Row="0">
+                <TextBox Watermark="Titel" UseFloatingWatermark="True" Text="{Binding ZettelTitle}"/>
+            </Border>
+            <Border Classes="group" Grid.Row="1">
+                <TextBox Watermark="Inhalt" UseFloatingWatermark="True" Text="{Binding ZettelContent}" AcceptsReturn="True" x:Name="txbZettelContent" Grid.Row="1"/>
+            </Border>
+        </Grid>
+
+        <Border Classes="group" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Schließen" Command="{Binding Close}"/>
+                <Button Classes="Primary" Command="{Binding Save}" Content="Speichern"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -19,24 +19,19 @@ namespace ZettelWirtschaft.Data
 
         public async Task<ZettelEntity> CreateNewZettel(ZettelEntity zettel, CancellationToken cancellation)
         {
-            var zettelData = await dbContext.Zettels.FindAsync(Guid.Parse(zettel.Id));
+            var zettelData = await dbContext.Zettels.FindAsync(zettel.Id.Value);
             cancellation.ThrowIfCancellationRequested();
             if (zettelData != null)
             {
                 throw new ArgumentException($"zettel with id {zettel.Id} does already exist");
             }
 
-            mapper.Map(zettel, zettelData);
+            zettelData = mapper.Map<ZettelData>(zettel);
             await dbContext.AddAsync(zettelData);
 
             cancellation.ThrowIfCancellationRequested();
             await dbContext.SaveChangesAsync();
             return mapper.Map<ZettelEntity>(zettelData);
-        }
-
-        public Task<ZettelId> GetNewZettelId(CancellationToken cancellation)
-        {
-            return Task.FromResult(new ZettelId(Guid.NewGuid().ToString()));
         }
     }
 }
